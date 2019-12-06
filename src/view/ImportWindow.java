@@ -24,26 +24,31 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-//import model.DBConnection;
+import model.DBConnection;
 import model.DBConnectionDriver;
 import model.Date_Format;
 
 
 public class ImportWindow implements ActionListener{
-	
+
 	// Database Connection
-	//private DBConnection db_con;
-	//private Connection con; 
+
+
+	private DBConnection dbgetter;
+
+	private Connection con;
+
+	// mit driver
 	private DBConnectionDriver db_con = null;
 
 
 	//LoginFenster
 	public JFrame frmLoginWindow;
-	
+
 	//Logger
 
 	private static final Logger LOG = Logger.getGlobal();
-	
+
 	//Labels for Connection Screen
 	private JLabel userL;
 	private JLabel passwordL;
@@ -65,11 +70,11 @@ public class ImportWindow implements ActionListener{
 	private JButton btnFile;
 	private JButton btnCancel;
 	private JButton btnProtocol;
-	
+
 	//Protocol
-	
+
 	private String protocol_content;
-	
+
 	//Constructor for starting Application Window	
 
 	public ImportWindow() {
@@ -154,46 +159,46 @@ public class ImportWindow implements ActionListener{
 		btnPane.add(btnImport);
 		btnPane.add(btnProtocol);
 		btnPane.add(btnCancel);
-		
+
 		//Container
 		Container container = frmLoginWindow.getContentPane();
 		container.setBackground(Color.lightGray);
-		
+
 		//Button Default 
 		frmLoginWindow.getRootPane().setDefaultButton(btnImport);
-		
+
 		//place panels
 		container.add(labelPane, BorderLayout.CENTER);
 		container.add(fieldPane, BorderLayout.LINE_END);
 		container.add(btnPane, BorderLayout.SOUTH);
-		
+
 		frmLoginWindow.setVisible(true);
 	}
-	
+
 	// 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
 		if(e.getSource() == btnFile){
 			final JFileChooser fc = new JFileChooser();
 			int returnVal = fc.showOpenDialog(fc);
-			
+
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
-	            File file = fc.getSelectedFile();
-	            //This is where a real application would open the file.
-	            fileF.setText(file.getAbsolutePath());
-	            LOG.info("File selected with success");
-	        }
-            System.out.println("Button geklickt!");
-        }
+				File file = fc.getSelectedFile();
+				//This is where a real application would open the file.
+				fileF.setText(file.getAbsolutePath());
+				LOG.info("File selected with success");
+			}
+			System.out.println("Button geklickt!");
+		}
 		else if(e.getSource() == btnCancel) {
 			System.exit(0);
 			System.out.println("Canceled");
 			LOG.info("Canceled");
 		}
 		else if(e.getSource() == btnProtocol) {
-			
+
 			JTextArea outputArea = new JTextArea(20, 40);
 			// Header and append
 			String header = getHeader();
@@ -208,53 +213,75 @@ public class ImportWindow implements ActionListener{
 		}
 		// DB Import CSV
 		else if(e.getSource() == btnImport) {
-			
+
 			LOG.info("Import clicked..");
-			
+
 			int port_no = Integer.parseInt(portF.getText());
-			
-			boolean isOk = testConnection(userF.getText(), new String(passwordF
-					.getPassword()), databaseF.getText(), serverF.getText(), port_no);
-			
-			if(isOk) {
-				LOG.info("Connection Established");
+
+
+			try {
+				LOG.info("DB Verbindung wird hergestellt.");
+				dbgetter = new DBConnection(serverF.getText(),
+						portF.getText(), databaseF.getText(),
+						userF.getText(), new String(
+								passwordF.getPassword()));
+				con = dbgetter.getConnection();
+				con.setAutoCommit(false);
+
+			} catch (SQLException e1) {
+				LOG.log(Level.SEVERE, "Fehler im Datensatz.", e1);
 				JOptionPane.showMessageDialog(new JFrame(),
-						"Connection Established" +
-						"Connection",
-						"Connection", JOptionPane.INFORMATION_MESSAGE);	
+						"Keine Verbindung zur Datenbank!\n" +
+								"Bitte \u00FCberprüfen Sie Ihre Angaben!",
+								"Datenimport", JOptionPane.ERROR_MESSAGE);
 			}
-			else {
-				LOG.info("Error in Connection uups");
-				JOptionPane.showMessageDialog(new JFrame(),
-						"No DB Connection\n" +
-						"Please check your entries",
-						"Data import", JOptionPane.ERROR_MESSAGE);
-			}
-			
-//			try {
-//				LOG.info("DB Verbindung wird hergestellt.");
-//				db_con = new DBConnectionDriver("com.inet.tds.TdsDriver",
-//						"jdbc:inetdae:",  databaseF.getText(),
-//						userF.getText(), new String(passwordF.getPassword()));
-//				con = db_con.getConnection();
-//				con.setAutoCommit(false);
-//				LOG.info("Connection Established");
-//				JOptionPane.showMessageDialog(new JFrame(),
-//						"Connection Established" +
-//						"Connection",
-//						"Connection", JOptionPane.INFORMATION_MESSAGE);
-//				
-//			} catch (SQLException ex) {
-//				LOG.log(Level.SEVERE, "Error in Data", ex);
-//				JOptionPane.showMessageDialog(new JFrame(),
-//						"No DB Connection\n" +
-//						"Please check your entries",
-//						"Data import", JOptionPane.ERROR_MESSAGE);
-//			} catch (ClassNotFoundException e1) {
-//				// TODO Auto-generated catch block
-//				e1.printStackTrace();
-//			}
-//			
+
+			// ********************************************************************				
+
+			//			boolean isOk = testConnection(userF.getText(), new String(passwordF
+			//					.getPassword()), databaseF.getText(), serverF.getText(), port_no);
+			//			
+			//			if(isOk) {
+			//				LOG.info("Connection Established");
+			//				JOptionPane.showMessageDialog(new JFrame(),
+			//						"Connection Established" +
+			//						"Connection",
+			//						"Connection", JOptionPane.INFORMATION_MESSAGE);	
+			//			}
+			//			else {
+			//				LOG.info("Error in Connection uups");
+			//				JOptionPane.showMessageDialog(new JFrame(),
+			//						"No DB Connection\n" +
+			//						"Please check your entries",
+			//						"Data import", JOptionPane.ERROR_MESSAGE);
+			//			}
+
+			//****************************************************************
+
+			//			try {
+			//				LOG.info("DB Verbindung wird hergestellt.");
+			//				db_con = new DBConnectionDriver("com.inet.tds.TdsDriver",
+			//						"jdbc:inetdae:",  databaseF.getText(),
+			//						userF.getText(), new String(passwordF.getPassword()));
+			//				con = db_con.getConnection();
+			//				con.setAutoCommit(false);
+			//				LOG.info("Connection Established");
+			//				JOptionPane.showMessageDialog(new JFrame(),
+			//						"Connection Established" +
+			//						"Connection",
+			//						"Connection", JOptionPane.INFORMATION_MESSAGE);
+			//				
+			//			} catch (SQLException ex) {
+			//				LOG.log(Level.SEVERE, "Error in Data", ex);
+			//				JOptionPane.showMessageDialog(new JFrame(),
+			//						"No DB Connection\n" +
+			//						"Please check your entries",
+			//						"Data import", JOptionPane.ERROR_MESSAGE);
+			//			} catch (ClassNotFoundException e1) {
+			//				// TODO Auto-generated catch block
+			//				e1.printStackTrace();
+			//			}
+			//			
 			// port Int parsen: Integer.parseInt(portF.getText())
 			// 1. boolean isOK = Test-Connection aufrufen
 			// ImportRoutine Instanz erzeugen zum Importieren und dem Konstruktor die DB Connection und die Datei ubergeben
@@ -277,7 +304,7 @@ public class ImportWindow implements ActionListener{
 				+ Date_Format.getDdMMyyyyHHMi(System.currentTimeMillis())
 				+ " Uhr \n" + "**************************************\n\n";
 	}
-	
+
 	private boolean testConnection(String user, String passwort,
 			String datenbank, String server, int port) {
 		boolean istVerbunden = false;
@@ -293,7 +320,7 @@ public class ImportWindow implements ActionListener{
 		}
 		return istVerbunden;
 	}
-	
-	
+
+
 
 }

@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.activation.DataSource;
 //import javax.activation.DataSource;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -53,20 +54,14 @@ public class DBConnection {
 		
 		//int port_no = Integer.parseInt(port);
 		
-		try {
-			if (con == null || con.isClosed()) {
-				TdsDataSource ds =  new TdsDataSource();
-				ds.setServerName(serverName);
-				ds.setPort(port);
-				//ds.setDatabaseName(databaseName);
-				con =  ds.getConnection(username, password);
-				con.setCatalog(databaseName);
-				log.log(Level.FINE, "DB Connection Succeeded");
-				JOptionPane.showMessageDialog(new JFrame(),
-						"Connection Established" +
-						"Yeah, established",
-						"Connection", JOptionPane.INFORMATION_MESSAGE);
-			}
+			try {
+				if (con == null || con.isClosed()) {
+					DataSource ds = (DataSource) new TdsDataSource();
+					((TdsDataSource) ds).setServerName(serverName);
+					((TdsDataSource) ds).setPortNumber(Integer.parseInt(port));
+					con = ((TdsDataSource) ds).getConnection(username, password);
+					con.setCatalog(databaseName);
+				}
 		} catch (SQLException e) {
 			log.log(Level.WARNING, "DB Connection failed.", e);
 			JOptionPane.showMessageDialog(new JFrame(),
