@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.activation.DataSource;
+import javax.sql.DataSource;
 //import javax.activation.DataSource;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -28,7 +28,7 @@ public class DBConnection {
 	// setServerName(String serverName)
 	// getInstanceName()
 	// setDatabaseName(String databaseName) etc ....
-	// setPort(String port) --> cast from Textfield not necessary, if not set, default ist 1143
+	// setPort(String port) --> cast from Textfield not necessary, if not set, default ist 1433
 	// setUser and getUser as well as getPassword set Password both String
 
 
@@ -49,30 +49,51 @@ public class DBConnection {
 		this.username = username;
 		this.password = password;
 	}
-	
+
 	public synchronized Connection getConnection() throws SQLException{
-		
+
 		//int port_no = Integer.parseInt(port);
-		
-			try {
-				if (con == null || con.isClosed()) {
-					DataSource ds = (DataSource) new TdsDataSource();
-					((TdsDataSource) ds).setServerName(serverName);
-					((TdsDataSource) ds).setPortNumber(Integer.parseInt(port));
-					con = ((TdsDataSource) ds).getConnection(username, password);
-					con.setCatalog(databaseName);
-				}
+
+		try {
+			if (con == null || con.isClosed()) {
+				DataSource ds = new TdsDataSource();
+				((TdsDataSource) ds).setServerName(serverName);
+				((TdsDataSource) ds).setPortNumber(Integer.parseInt(port));
+				con = ds.getConnection(username, password);
+				con.setCatalog(databaseName);
+			}
 		} catch (SQLException e) {
 			log.log(Level.WARNING, "DB Connection failed.", e);
 			JOptionPane.showMessageDialog(new JFrame(),
-							" DB Connection failed!\n" +
+					" DB Connection failed!\n" +
 							"Check your connection input",
 							"CSV Import", JOptionPane.ERROR_MESSAGE);
 		}
 		return con;
+
+	}
+	public synchronized void freeConnection() {
+		try {
+			System.out.println("Active DB-Verbindung wird geschlossen... ");
+			con.close();
+			con = null;
+		} catch (Exception e) {
+
+		}
+	}
+	
+	public synchronized boolean testConnection() {
+		try {
+			// Die Verbindung hat geklappt.
+			log.info("Testing Connection in DBConnectionDataSource");
+			if (getConnection() != null)
+				return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 		
 	}
-
 
 
 }

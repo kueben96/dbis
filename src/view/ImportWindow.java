@@ -122,7 +122,7 @@ public class ImportWindow implements ActionListener{
 		serverF.setText("whv-fbmit3.hs-woe.de");
 
 		portF= new JTextField();
-		portF.setText("1443");
+		portF.setText("1433");
 
 		fileF = new JTextField();
 		fileF.setText(System.getProperty("user.dir")
@@ -216,17 +216,22 @@ public class ImportWindow implements ActionListener{
 
 			LOG.info("Import clicked..");
 
-			int port_no = Integer.parseInt(portF.getText());
-
-
 			try {
-				LOG.info("DB Verbindung wird hergestellt.");
+				LOG.info("Connecting...");
 				dbgetter = new DBConnection(serverF.getText(),
 						portF.getText(), databaseF.getText(),
 						userF.getText(), new String(
 								passwordF.getPassword()));
 				con = dbgetter.getConnection();
+				
+				boolean isOk = dbgetter.testConnection();
+				
+				//Test if connection is established --> true!!
+				System.out.println("Connection established"+ isOk);
 				con.setAutoCommit(false);
+				
+			// **************************
+			// hier den CSV Import Implementieren bzw. die Klasse dafür aufrufen
 
 			} catch (SQLException e1) {
 				LOG.log(Level.SEVERE, "Fehler im Datensatz.", e1);
@@ -235,60 +240,6 @@ public class ImportWindow implements ActionListener{
 								"Bitte \u00FCberprüfen Sie Ihre Angaben!",
 								"Datenimport", JOptionPane.ERROR_MESSAGE);
 			}
-
-			// ********************************************************************				
-
-			//			boolean isOk = testConnection(userF.getText(), new String(passwordF
-			//					.getPassword()), databaseF.getText(), serverF.getText(), port_no);
-			//			
-			//			if(isOk) {
-			//				LOG.info("Connection Established");
-			//				JOptionPane.showMessageDialog(new JFrame(),
-			//						"Connection Established" +
-			//						"Connection",
-			//						"Connection", JOptionPane.INFORMATION_MESSAGE);	
-			//			}
-			//			else {
-			//				LOG.info("Error in Connection uups");
-			//				JOptionPane.showMessageDialog(new JFrame(),
-			//						"No DB Connection\n" +
-			//						"Please check your entries",
-			//						"Data import", JOptionPane.ERROR_MESSAGE);
-			//			}
-
-			//****************************************************************
-
-			//			try {
-			//				LOG.info("DB Verbindung wird hergestellt.");
-			//				db_con = new DBConnectionDriver("com.inet.tds.TdsDriver",
-			//						"jdbc:inetdae:",  databaseF.getText(),
-			//						userF.getText(), new String(passwordF.getPassword()));
-			//				con = db_con.getConnection();
-			//				con.setAutoCommit(false);
-			//				LOG.info("Connection Established");
-			//				JOptionPane.showMessageDialog(new JFrame(),
-			//						"Connection Established" +
-			//						"Connection",
-			//						"Connection", JOptionPane.INFORMATION_MESSAGE);
-			//				
-			//			} catch (SQLException ex) {
-			//				LOG.log(Level.SEVERE, "Error in Data", ex);
-			//				JOptionPane.showMessageDialog(new JFrame(),
-			//						"No DB Connection\n" +
-			//						"Please check your entries",
-			//						"Data import", JOptionPane.ERROR_MESSAGE);
-			//			} catch (ClassNotFoundException e1) {
-			//				// TODO Auto-generated catch block
-			//				e1.printStackTrace();
-			//			}
-			//			
-			// port Int parsen: Integer.parseInt(portF.getText())
-			// 1. boolean isOK = Test-Connection aufrufen
-			// ImportRoutine Instanz erzeugen zum Importieren und dem Konstruktor die DB Connection und die Datei ubergeben
-			//
-			// Get Connection Details
-			//db_con = new DBConnection(serverF.getText(), Integer.parseInt(portF.getText()), databaseF.getText(), userF.getText(), new String(passwordF.getPassword()));
-			//con = db_con.getConnection();
 		}
 
 	}
@@ -305,21 +256,21 @@ public class ImportWindow implements ActionListener{
 				+ " Uhr \n" + "**************************************\n\n";
 	}
 
-	private boolean testConnection(String user, String passwort,
-			String datenbank, String server, int port) {
-		boolean istVerbunden = false;
-		try {
-			LOG.info("Testing Connection in ImportWindow");
-			db_con = new DBConnectionDriver("com.inet.tds.TdsDriver",
-					"jdbc:inetdae:" + server + ":" + port, datenbank, user, passwort);
-			istVerbunden = db_con.testConnection();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			istVerbunden = false;
-		}
-		return istVerbunden;
-	}
+//	private boolean testConnection(String user, String passwort,
+//			String datenbank, String server, int port) {
+//		boolean istVerbunden = false;
+//		try {
+//			LOG.info("Testing Connection in ImportWindow");
+//			db_con = new DBConnectionDriver("com.inet.tds.TdsDriver",
+//					"jdbc:inetdae:" + server + ":" + port, datenbank, user, passwort);
+//			istVerbunden = db_con.testConnection();
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			istVerbunden = false;
+//		}
+//		return istVerbunden;
+//	}
 
 
 

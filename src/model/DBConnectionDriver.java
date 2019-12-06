@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
+// ****************** TRASH Klasse fur DB-Connection ************************** /////////
+
 public class DBConnectionDriver {
 	
 	private static final Logger LOG = Logger.getGlobal();
@@ -117,6 +119,58 @@ public class DBConnectionDriver {
 	}
 
 
+	// ********************************************************************				
 
+	//			boolean isOk = testConnection(userF.getText(), new String(passwordF
+	//					.getPassword()), databaseF.getText(), serverF.getText(), port_no);
+	//			
+	//			if(isOk) {
+	//				LOG.info("Connection Established");
+	//				JOptionPane.showMessageDialog(new JFrame(),
+	//						"Connection Established" +
+	//						"Connection",
+	//						"Connection", JOptionPane.INFORMATION_MESSAGE);	
+	//			}
+	//			else {
+	//				LOG.info("Error in Connection uups");
+	//				JOptionPane.showMessageDialog(new JFrame(),
+	//						"No DB Connection\n" +
+	//						"Please check your entries",
+	//						"Data import", JOptionPane.ERROR_MESSAGE);
+	//			}
+
+	//****************************************************************
+
+	//			try {
+	//				LOG.info("DB Verbindung wird hergestellt.");
+	//				db_con = new DBConnectionDriver("com.inet.tds.TdsDriver",
+	//						"jdbc:inetdae:",  databaseF.getText(),
+	//						userF.getText(), new String(passwordF.getPassword()));
+	//				con = db_con.getConnection();
+	//				con.setAutoCommit(false);
+	//				LOG.info("Connection Established");
+	//				JOptionPane.showMessageDialog(new JFrame(),
+	//						"Connection Established" +
+	//						"Connection",
+	//						"Connection", JOptionPane.INFORMATION_MESSAGE);
+	//				
+	//			} catch (SQLException ex) {
+	//				LOG.log(Level.SEVERE, "Error in Data", ex);
+	//				JOptionPane.showMessageDialog(new JFrame(),
+	//						"No DB Connection\n" +
+	//						"Please check your entries",
+	//						"Data import", JOptionPane.ERROR_MESSAGE);
+	//			} catch (ClassNotFoundException e1) {
+	//				// TODO Auto-generated catch block
+	//				e1.printStackTrace();
+	//			}
+	//			
+	// port Int parsen: Integer.parseInt(portF.getText())
+	// 1. boolean isOK = Test-Connection aufrufen
+	// ImportRoutine Instanz erzeugen zum Importieren und dem Konstruktor die DB Connection und die Datei ubergeben
+	//
+	// Get Connection Details
+	//db_con = new DBConnection(serverF.getText(), Integer.parseInt(portF.getText()), databaseF.getText(), userF.getText(), new String(passwordF.getPassword()));
+	//con = db_con.getConnection();
 
 }
