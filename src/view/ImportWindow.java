@@ -7,8 +7,10 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,9 +26,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import model.CSVHandler;
 import model.DBConnection;
 import model.DBConnectionDriver;
 import model.Date_Format;
+import model.ImportRoutine;
 
 
 public class ImportWindow implements ActionListener{
@@ -34,9 +38,15 @@ public class ImportWindow implements ActionListener{
 	// Database Connection
 
 
-	private DBConnection dbgetter;
+	private DBConnection dbcon;
 
 	private Connection con;
+	
+	private Statement statement;
+	
+	//for CSV Testing
+	
+	private CSVHandler csvRead;
 
 	// mit driver
 	private DBConnectionDriver db_con = null;
@@ -218,21 +228,57 @@ public class ImportWindow implements ActionListener{
 
 			try {
 				LOG.info("Connecting...");
-				dbgetter = new DBConnection(serverF.getText(),
+				dbcon = new DBConnection(serverF.getText(),
 						portF.getText(), databaseF.getText(),
 						userF.getText(), new String(
 								passwordF.getPassword()));
-				con = dbgetter.getConnection();
+				con = dbcon.getConnection();
 				
-				boolean isOk = dbgetter.testConnection();
+				// Testen der Verbindung 
+				
+				boolean isOk = dbcon.testConnection();
 				
 				//Test if connection is established --> true!!
 				System.out.println("Connection established"+ isOk);
-				con.setAutoCommit(false);
+				protocol_content+= "Connection established to" + " "+serverF.getText();
 				
-			// **************************
-			// hier den CSV Import Implementieren bzw. die Klasse dafür aufrufen
+				
+				if (!isOk) {
+					JOptionPane.showMessageDialog(new JFrame(),
+							"Die Anmeldung konnte nicht durchgef�hrt werden!"
+									+ "\n\nBitte �berpr�fen Sie Ihre Angaben!",
+							"Anmeldung fehlgeschlagen!", JOptionPane.ERROR_MESSAGE);
+				} else {
+					
+					// Das Hauptfenster f�r die Systemverwaltung wird ge�ffnet.
+					ImportRoutine dbisImport = new ImportRoutine(con, fileF
+							.getText());
+					try {
+						// Datemimportieren
+						protocol_content = dbisImport.startImport();
+						
+						if (dbisImport.isImportOk())
+							JOptionPane.showMessageDialog(new JFrame(),
+									"Datenimport wurde erfolgreich durchgef�hrt!", "Datenimport",
+									JOptionPane.INFORMATION_MESSAGE);
+						else
+							JOptionPane.showMessageDialog(new JFrame(),
+									"Datenimport wurde abgebrochen!",
+									"Datenimport fehlgeschlagen!", JOptionPane.ERROR_MESSAGE);
+					} catch (IOException e1) {
+						JOptionPane
+								.showMessageDialog(
+										new JFrame(),
+										"Die Datei konnte nicht gefunden oder nicht gelesen werden!"
+												+ "\n\nBitte �berpr�fen Sie Pfad, Name und Rechte der Importdatei!",
+										"Import fehlgeschlagen!", JOptionPane.ERROR_MESSAGE);
+						e1.printStackTrace();
+					}
+					//****************!!!**************
+					dbcon.freeConnection();
 
+				}
+				
 			} catch (SQLException e1) {
 				LOG.log(Level.SEVERE, "Fehler im Datensatz.", e1);
 				JOptionPane.showMessageDialog(new JFrame(),

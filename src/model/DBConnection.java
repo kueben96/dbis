@@ -94,6 +94,9 @@ public class DBConnection {
 		return false;
 		
 	}
+	public String getSchemaname() {
+	    return "dbo";
+	  }
 
 
 }
