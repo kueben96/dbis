@@ -25,7 +25,7 @@ public class FileLineParser {
 		String	trockensortiment = getValue(line, 2).trim();
 		String	warengruppe = getValue(line, 3).trim();
 		String	preis = getValue(line, 4).trim();
-		String fb_id;
+		String 	fb_id;
 		
 		//Versuch: Handelsmarke und Fachbereich integrieren
 		//Hardcoded Idee für Fachbereich: Methode getFachbereich wie getWarengruppe --> Fachbereichnummer ist der Foreign Key
@@ -58,7 +58,7 @@ public class FileLineParser {
 		FileLine fileLineObj = null;
 		try {
 			
-			fileLineObj = new FileLine(fb_id, 9,bezeichnung,trockensortiment,warengruppe,Float.parseFloat(preis));
+			fileLineObj = new FileLine(fb_id, 9,bezeichnung,trockensortiment,warengruppe, Float.parseFloat(preis));
 		} catch (Exception e) {
 			System.out
 					.println("Parsefehler: Bitte �berpr�fen Sie das Format in dieser Zeile:"
@@ -149,14 +149,14 @@ public class FileLineParser {
 			fb_id= "1015";
 		//hardcoding von FB für Gewürze
 		}else if(warengruppe_id == "005") {
-			ImportRoutine.createNewFB("Gewürze", "1039");
+			//ImportRoutine.createNewFB("Gewürze", "1039");
 			fb_id="1039";
 		}
 		
 		return fb_id;
 	}
 	
-	// Methode zum Prüfen von Redundanten Einträgen
+	// Methode zum Prüfen von Redundanten Einträgen 
 	
 	public static boolean isDub(String bezeichnung) {
 		
