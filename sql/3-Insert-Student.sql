@@ -122,35 +122,35 @@ values
 
 insert into BONPOSITION (BONNR, PRODUKTNR, AKTIONSWARE, RABATTWARE, VERKAUFSMENGE, VERKAUFSPREIS, MWST)
 values
-(22, 167, 'Y', 'Y', 10, 28.900, 28.900 * 0.07), 
+(22, 167, 'Y', 'Y', 10, 28.900, 28.900 * 0.07),
 (22, 169, 'Y', 'Y', 1, 3.7900, 3.7900 * 0.07),
 (22, 172, 'Y', 'Y', 200, 2.9900, 2.9900 * 0.07);
 
 insert into BONPOSITION (BONNR, PRODUKTNR, AKTIONSWARE, RABATTWARE, VERKAUFSMENGE, VERKAUFSPREIS, MWST)
 values
-(23, 12, 'Y', 'Y', 10, 7.90, 7.90 * 1.07),
-(23, 158, 'Y', 'Y', 1, 3.9500, 3.9500 * 1.07),
-(23, 160, 'Y', 'Y', 10, 45.500, 45.500 * 1.07);
+(23, 12, 'Y', 'Y', 10, 7.90, 7.90 * 0.07),
+(23, 158, 'Y', 'Y', 1, 3.9500, 3.9500 * 0.07),
+(23, 160, 'Y', 'Y', 10, 45.500, 45.500 * 0.07);
 
 
 insert into BONPOSITION (BONNR, PRODUKTNR, AKTIONSWARE, RABATTWARE, VERKAUFSMENGE, VERKAUFSPREIS, MWST)
 values
-(24, 15, 'Y', 'N', 10, 29.9, 29.9 * 1.07),
-(24, 1, 'N', 'N', 1, 12.79, 12.79 * 1.07),
-(24, 16, 'Y', 'Y', 20, 59.800, 59.800 * 1.07);
+(24, 15, 'Y', 'N', 10, 29.9, 29.9 * 0.07),
+(24, 1, 'N', 'N', 1, 12.79, 12.79 * 0.07),
+(24, 16, 'Y', 'Y', 20, 59.800, 59.800 * 0.07);
 
 
 insert into BONPOSITION (BONNR, PRODUKTNR, AKTIONSWARE, RABATTWARE, VERKAUFSMENGE, VERKAUFSPREIS, MWST)
 values
-(25, 1, 'N', 'N', 1, 12.79, 12.79 * 1.07),
-(25, 16, 'Y', 'Y', 1,2.9900, 2.9900 * 1.07),
-(25, 19, 'Y', 'Y', 200, 133.0, 133.0 * 1.07);
+(25, 1, 'N', 'N', 1, 12.79, 12.79 * 0.07),
+(25, 16, 'Y', 'Y', 1,2.9900, 2.9900 * 0.07),
+(25, 19, 'Y', 'Y', 200, 133.0, 133.0 * 0.07);
 
 insert into BONPOSITION (BONNR, PRODUKTNR, AKTIONSWARE, RABATTWARE, VERKAUFSMENGE, VERKAUFSPREIS, MWST)
 values
-(26, 12, 'Y', 'Y', 10, 7.900, 7.900 * 1.07),
-(26, 163, 'Y', 'Y', 1, 3.9900, 3.9900 * 1.07),
-(26, 164, 'Y', 'Y', 10, 19.900, 19.900 * 1.07);
+(26, 12, 'Y', 'Y', 10, 7.900, 7.900 * 0.07),
+(26, 163, 'Y', 'Y', 1, 3.9900, 3.9900 * 0.07),
+(26, 164, 'Y', 'Y', 10, 19.900, 19.900 * 0.07);
 
 
 insert into BONPOSITION (BONNR, PRODUKTNR, AKTIONSWARE, RABATTWARE, VERKAUFSMENGE, VERKAUFSPREIS, MWST)
@@ -296,30 +296,29 @@ values
 
 -- ******* Tabelle HANDELSMARKE ******************************** --
 
-select * from HANDELSMARKE;
-select * from PRODUKT; 
 
 insert into HANDELSMARKE (NAME, LAND)
 values
 ('Schär', 'Deutschland'),
-('Nestlé', 'USA'),
-('Kellog''s', 'Italien'),
-('Pepsi', 'Japan'),
-('Skittles', 'Polen'),
-('Punica', 'Italien'),
-('Lipton', 'USA');
+('Nestlé', 'Schweiz'),
+('Kellog''s', 'USA'),
+('Coca Cola', 'USA'),
+('Goutess', 'Deutschland'),
+('Gutfried', 'Deutschland'),
+('Jever', 'Deutschland');
 
 -- ********************************************************** --
 -- ******* Tabelle FACHBEREICH ******************************** --
 -- ********************************************************** --
 
+-- ** Gewürze wurden aus dem Java-Programm heraus hinzugefügt *** --
 insert into FACHBEREICH (FACHBEREICHNR, NAME)
 values
-(1039,'Gewürze'),
-(1040,'Drinks'),
-(1041,'Zeitschriften'),
-(1042,'Zeitung'),
-(1043,'Gutscheine'),
-(1044,'Eis'),
-(1045,'Pflegebedarf'),
-(1046,'Tierzubehör'),
+(1040,'Snacks'),
+(1041,'Oriental'),
+(1042,'Asia'),
+(1043,'Italienisch'),
+(1044,'Drogerie'),
+(1045,'Haushalt'),
+(1046,'Getränke'),
+(1047,'Desserts');
