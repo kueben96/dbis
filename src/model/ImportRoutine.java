@@ -38,7 +38,7 @@ public class ImportRoutine {
 			}
 			try {
 				try {
-					// Buffer für Zeilen
+					// Buffer fur Zeilen
 				in = new BufferedReader(new FileReader(fileIn));
 				}
 				catch (Exception e) {e.printStackTrace();}
@@ -88,8 +88,8 @@ public class ImportRoutine {
 												new JFrame(),
 												"Daten aus der Zeile "
 														+ lineCounter
-														+ " verursachten beim Ausführen der SQL-Anweisung Fehler."
-														+ "\nBitte überprüfen Sie die SQL-Anweisung oder zu importierenden Daten!",
+														+ " verursachten beim Ausfuhren der SQL-Anweisung Fehler."
+														+ "\nBitte überprufen Sie die SQL-Anweisung oder zu importierenden Daten!",
 												"Datenimport",
 												JOptionPane.ERROR_MESSAGE);
 							} else {
@@ -102,14 +102,13 @@ public class ImportRoutine {
 									.showMessageDialog(
 											new JFrame(),
 											"Keine Verbindung zur Datenbank!"
-													+ "\nBitte �berpr�fen Sie Ihre Angaben!",
+													+ "\nBitte uberprufen Sie Ihre Angaben!",
 											"Datenimport",
 											JOptionPane.ERROR_MESSAGE);
 							e.printStackTrace();
 							protocol += "Keine Verbindung zur Datenbank!\n\n";
 							break;
 						} catch (NoSuchElementException e) {
-							// istImportOk = false;
 							protocol += "Parse-Exception in der Zeile: "
 									+ lineCounter + "\n";
 							protocol += line + "\n\n";
@@ -119,7 +118,7 @@ public class ImportRoutine {
 											"Daten aus der Zeile "
 													+ lineCounter
 													+ " konnten nicht importiert werden."
-													+ "\nBitte �berpr�fen Sie die zu importierenden Daten!",
+													+ "\nBitte uberprufen Sie die zu importierenden Daten!",
 											"Datenimport",
 											JOptionPane.ERROR_MESSAGE);
 							e.printStackTrace();
@@ -133,7 +132,7 @@ public class ImportRoutine {
 						e.printStackTrace();
 					}
 				}
-				protocol += "Anzahl der verarbeiteten Datens�tze: " + objCounter + "\n\n";
+				protocol += "Anzahl der verarbeiteten Datensatze: " + objCounter + "\n\n";
 				protocol += "Datenimport ist abgeschlossen.\n\n";
 			} finally {
 				if (in != null)
@@ -147,7 +146,7 @@ public class ImportRoutine {
 			return protocol;
 		}
 		
-		// Neuer Fachbereich für Gewürze erstellen, bevor der Import vollzogen wird
+		// Neuer Fachbereich für Gewurze erstellen, bevor der Import vollzogen wird
 		
 		public static void createNewFB(String name, String fb_nr) throws SQLException {
 

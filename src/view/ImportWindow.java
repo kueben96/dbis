@@ -26,37 +26,21 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import model.CSVHandler;
 import model.DBConnection;
-import model.DBConnectionDriver;
 import model.Date_Format;
 import model.ImportRoutine;
 
 
 public class ImportWindow implements ActionListener{
 
-	// Database Connection
-
+	// Datenbankverbindung mit JDBC Data Source
 
 	private DBConnection dbcon;
-
 	private Connection con;
-	
 	private Statement statement;
-	
-	//for CSV Testing
-	
-	private CSVHandler csvRead;
-
-	// mit driver
-	private DBConnectionDriver db_con = null;
-
-
 	//LoginFenster
 	public JFrame frmLoginWindow;
-
 	//Logger
-
 	private static final Logger LOG = Logger.getGlobal();
 
 	//Labels for Connection Screen
@@ -66,7 +50,6 @@ public class ImportWindow implements ActionListener{
 	private JLabel serverL;
 	private JLabel portL;
 	private JLabel fileL;
-
 	//Inputs in Connection Screen 
 	private JTextField userF;
 	private JPasswordField passwordF;
@@ -74,23 +57,18 @@ public class ImportWindow implements ActionListener{
 	private JTextField fileF;
 	private JTextField serverF;
 	private JTextField portF;
-
 	//Buttons for Screens
 	private JButton btnImport; 
 	private JButton btnFile;
 	private JButton btnCancel;
 	private JButton btnProtocol;
-
 	//Protocol
-
 	private String protocol_content;
-
+	
 	//Constructor for starting Application Window	
-
 	public ImportWindow() {
 		init();
 	}
-
 
 	public void init() {
 		frmLoginWindow = new JFrame("Select CSV data for Product Import");
@@ -105,7 +83,6 @@ public class ImportWindow implements ActionListener{
 		serverL = new JLabel("Server String");
 		portL = new JLabel("Port No.");
 		fileL = new JLabel("CSV-File");
-
 
 		//Buttons
 		btnImport = new JButton("Import");
@@ -185,8 +162,6 @@ public class ImportWindow implements ActionListener{
 		frmLoginWindow.setVisible(true);
 	}
 
-	// 
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
@@ -233,30 +208,30 @@ public class ImportWindow implements ActionListener{
 						userF.getText(), new String(
 								passwordF.getPassword()));
 				con = dbcon.getConnection();
-				
+
 				// Testen der Verbindung 
-				
+
 				boolean isOk = dbcon.testConnection();
-				
+
 				//Test if connection is established --> true!!
 				System.out.println("Connection established"+ isOk);
 				protocol_content+= "Connection established to" + " "+serverF.getText();
-				
-				
+
+
 				if (!isOk) {
 					JOptionPane.showMessageDialog(new JFrame(),
 							"Die Anmeldung konnte nicht durchgef�hrt werden!"
 									+ "\n\nBitte �berpr�fen Sie Ihre Angaben!",
-							"Anmeldung fehlgeschlagen!", JOptionPane.ERROR_MESSAGE);
+									"Anmeldung fehlgeschlagen!", JOptionPane.ERROR_MESSAGE);
 				} else {
-					
+
 					// Das Hauptfenster f�r die Systemverwaltung wird ge�ffnet.
 					ImportRoutine dbisImport = new ImportRoutine(con, fileF
 							.getText());
 					try {
-						// Datemimportieren
+						// Daten importieren
 						protocol_content = dbisImport.startImport();
-						
+
 						if (dbisImport.isImportOk())
 							JOptionPane.showMessageDialog(new JFrame(),
 									"Datenimport wurde erfolgreich durchgef�hrt!", "Datenimport",
@@ -267,18 +242,17 @@ public class ImportWindow implements ActionListener{
 									"Datenimport fehlgeschlagen!", JOptionPane.ERROR_MESSAGE);
 					} catch (IOException e1) {
 						JOptionPane
-								.showMessageDialog(
-										new JFrame(),
-										"Die Datei konnte nicht gefunden oder nicht gelesen werden!"
-												+ "\n\nBitte �berpr�fen Sie Pfad, Name und Rechte der Importdatei!",
+						.showMessageDialog(
+								new JFrame(),
+								"Die Datei konnte nicht gefunden oder nicht gelesen werden!"
+										+ "\n\nBitte �berpr�fen Sie Pfad, Name und Rechte der Importdatei!",
 										"Import fehlgeschlagen!", JOptionPane.ERROR_MESSAGE);
 						e1.printStackTrace();
 					}
 					//****************!!!**************
 					dbcon.freeConnection();
-
 				}
-				
+
 			} catch (SQLException e1) {
 				LOG.log(Level.SEVERE, "Fehler im Datensatz.", e1);
 				JOptionPane.showMessageDialog(new JFrame(),
@@ -301,23 +275,6 @@ public class ImportWindow implements ActionListener{
 				+ Date_Format.getDdMMyyyyHHMi(System.currentTimeMillis())
 				+ " Uhr \n" + "**************************************\n\n";
 	}
-
-//	private boolean testConnection(String user, String passwort,
-//			String datenbank, String server, int port) {
-//		boolean istVerbunden = false;
-//		try {
-//			LOG.info("Testing Connection in ImportWindow");
-//			db_con = new DBConnectionDriver("com.inet.tds.TdsDriver",
-//					"jdbc:inetdae:" + server + ":" + port, datenbank, user, passwort);
-//			istVerbunden = db_con.testConnection();
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			istVerbunden = false;
-//		}
-//		return istVerbunden;
-//	}
-
 
 
 }

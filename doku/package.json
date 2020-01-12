@@ -1,0 +1,26 @@
+{
+  "name": "dbis doku",
+  "version": "0.0.2",
+  "description": "A Latex template to cover a thesis document",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nimble-123/thesis-template.git"
+  },
+  "author": "Nils Lutz",
+  "bugs": {
+    "url": "https://github.com/nimble-123/thesis-template/issues"
+  },
+  "homepage": "https://github.com/nimble-123/thesis-template#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.0.2",
+    "standard-version": "^7.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

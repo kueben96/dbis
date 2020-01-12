@@ -11,10 +11,13 @@ import java.util.NoSuchElementException;
 public class DBImport{
 
 	/**
-	 * Speichert Daten der �bergebenen Zeile in der Datenbank.
+	 * Speichert Daten der ubergebenen Zeile in der Datenbank.
 	 * 
 	 * @throws ClassNotFoundException
 	 */
+	
+	 // Schreiben der Daten in die Datenbank 
+	
 	public static int insert(FileLine fileLine, Connection con)
 			throws SQLException, ClassNotFoundException, NoSuchElementException {
 		PreparedStatement stmnt = null;
@@ -22,12 +25,6 @@ public class DBImport{
 
 		int ergebnisZeilen = 0;
 
-		//Connection con = null;
-
-		//try {
-		//con = dbcon.getConnection();
-		// Transaktion starten:
-		//con.setAutoCommit(false);
 
 		if (fileLine.getFachbereichNr() != null) {
 			stmnt = con
@@ -46,7 +43,7 @@ public class DBImport{
 			stmnt.setDouble(6,fileLine.getPreis());
 
 			System.out.println(fileLine.toString());
-			// Insert Ausf�hren
+			// Insert Ausfuhren
 			ergebnisZeilen = stmnt.executeUpdate();
 
 			// Transaktion beenden:
@@ -54,11 +51,7 @@ public class DBImport{
 			con.setAutoCommit(true);
 		} else 
 			throw new NoSuchElementException();
-		//		} catch (SQLException e) {
-		//			con.rollback();
-		//			throw e;
-		//
-		//		}
+		
 		if (stmnt != null)
 			try {
 				stmnt.close();
@@ -70,12 +63,13 @@ public class DBImport{
 
 		return ergebnisZeilen;
 	}
+	
+	// Method for creating new Fachbereich
 
 	@SuppressWarnings("null")
 	public static void insertFB (String name, String fb_nr, Connection con) throws SQLException{
 		
-		// create a Statement from the connection
-		//Statement statement = con.createStatement();
+	
 		int ergebnisZeilen = 0;
 
 
@@ -85,11 +79,12 @@ public class DBImport{
 
 		PreparedStatement statement = con.prepareStatement(query);
 		
+		// Fachbereich will be created with number and name
+		
 		statement.setString(1,fb_nr);
 		statement.setString(2,name);
 		ergebnisZeilen = statement.executeUpdate();
 		
-		//statement.executeUpdate(query);
 		con.commit();
 		con.setAutoCommit(true);
 		if (statement != null)

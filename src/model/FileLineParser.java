@@ -10,14 +10,8 @@ public class FileLineParser {
 	
 	private static final int SPALTENANZAHL = 4;
 
-	/**
-	 * Erzeugt aus der �bergebenen Zeile ein Object, welches die ausgelesene
-	 * Zeile repr�sentiert. 
-	 * 
-	 * KUNDENNUMMER; HERSTELLER; PRODUKTNAME; VERPACKUNGSEINHEIT; PRODUKTKATEGORIECODE;
-	 * VERKAUFSDATUM; MENGE; RECHNUNGSBETRAG
-	 * @throws SQLException 
-	 */
+	// Erzeugt aus der ubergebenen Zeile ein Object
+	
 	protected static FileLine getExpFileLine(String line)
 			throws NoSuchElementException, SQLException {
 
@@ -28,15 +22,14 @@ public class FileLineParser {
 		String 	fb_id;
 		
 		//Versuch: Handelsmarke und Fachbereich integrieren
-		//Hardcoded Idee für Fachbereich: Methode getFachbereich wie getWarengruppe --> Fachbereichnummer ist der Foreign Key
+		//Hardcoded Idee für Fachbereich: Methode getFachbereich wie getWarengruppe 
+		//--> Fachbereichsnummer ist der Foreign Key
 		
-		// Gewürze sind nicht als Fachbereich vorhanden
+		// Gewuerrze sind nicht als Fachbereich vorhanden
 		
 		//Schwieriger: Handelsmarke -> Bezeichnung nochmal Tokenizen (1. Stelle oder mit Regex wegen Dr Oetker und Kellogs)
 		//Muss auch ein insert für Handelsmarke geben, wenn nicht vorhanden
-		//Bisher Vorhanden: Dr. Oetker (zum Glück)
-		// Neue Handelsmarken: Weber, Kellog's, Nestle, Basic, Schär. Nick
-		// Regex für Kellogs und Doktor Oetker:  (\w*'\w|Dr\.\s\w*)
+		// Neue Handelsmarken: Weber, Kellog's, Nestle, Basic, Schaer. Nick
 		
 		
 		
@@ -61,7 +54,7 @@ public class FileLineParser {
 			fileLineObj = new FileLine(fb_id, 9,bezeichnung,trockensortiment,warengruppe, Float.parseFloat(preis));
 		} catch (Exception e) {
 			System.out
-					.println("Parsefehler: Bitte �berpr�fen Sie das Format in dieser Zeile:"
+					.println("Parsefehler: Bitte uberprufen Sie das Format in dieser Zeile:"
 							+ line);
 			throw new NoSuchElementException();
 		}
@@ -98,7 +91,7 @@ public class FileLineParser {
 			value = lineValues.nextToken();
 		}
 		
-		// Check if Value has dublicate Contents
+		// Checkt, ob der Wert redundante Werte hat 
 		
 		isDub = isDub(value);
 		if(isDub == true) {
@@ -110,9 +103,7 @@ public class FileLineParser {
 		return value;
 	}
 	
-	// Weitere Probleme: 
-	// Bezeichnung min doppelt oder zu lang  z.B. weber fisch 
-	// Warengruppe wird nicht übertragen
+	// Ubergabe der Warengruppennummer 
 	
 	public static String getWarengruppe(String s_warengruppe) {
 		
@@ -135,6 +126,9 @@ public class FileLineParser {
 		return warengruppe_id;
 	}
 	
+	// Ubergabe der Fachbereichsnummer
+	// wird auch Fachbereich fuer Gewurze erstellen
+	
 	public static String getFachbereichsNummer(String warengruppe_id) throws SQLException {
 		
 		if (warengruppe_id==null) {
@@ -156,7 +150,7 @@ public class FileLineParser {
 		return fb_id;
 	}
 	
-	// Methode zum Prüfen von Redundanten Einträgen 
+	// Methode zum Prufen von Redundanten Eintragen 
 	
 	public static boolean isDub(String bezeichnung) {
 		

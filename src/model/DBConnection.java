@@ -52,8 +52,8 @@ public class DBConnection {
 
 	public synchronized Connection getConnection() throws SQLException{
 
-		//int port_no = Integer.parseInt(port);
-
+		// Connection with DataSource
+		
 		try {
 			if (con == null || con.isClosed()) {
 				DataSource ds = new TdsDataSource();
@@ -84,7 +84,7 @@ public class DBConnection {
 	
 	public synchronized boolean testConnection() {
 		try {
-			// Die Verbindung hat geklappt.
+			// Connection worked!
 			log.info("Testing Connection in DBConnectionDataSource");
 			if (getConnection() != null)
 				return true;

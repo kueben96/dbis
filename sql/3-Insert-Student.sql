@@ -305,7 +305,9 @@ values
 ('Coca Cola', 'USA'),
 ('Goutess', 'Deutschland'),
 ('Gutfried', 'Deutschland'),
-('Jever', 'Deutschland');
+('Jever', 'Deutschland'),
+('Nick', 'USA'),
+('Basic', 'USA');
 
 -- ********************************************************** --
 -- ******* Tabelle FACHBEREICH ******************************** --
