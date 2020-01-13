@@ -1,7 +1,36 @@
 \subsection{Daten}
-
+Es wird ein Grunddatenbestand bereitgestellt. Dieser ist gem. Zielbestimmungen zu erweitern. Wenn Sie für die zusätzlich erstellten Daten externe Quellen verwenden, so sind sie anzugeben. Änderungen der Datenstrukten sind zu dokumentieren.
 \subsection{Performance}
+keine spezifischen Anforderungen
 \subsection{Qualitätsziele}
+\begin{itemize}
+  \item hohe Benutzerfreundlichkeit
+  \item hohe Änderbarkeit
+\end{itemize}
 \subsection{Ablieferung der Ergebnisse}
+Folgende Bestandteile sind anzugeben bzw. einzurichten:
+\begin{enumerate}
+  \item Alle DB-Schemata müssen auf der eigenen Datenbank auf dem SQL-Server whv.fbmit3.hs-woe.de eingerichtet werden. Alle Anwendungsdaten liegen in dieser DB und die Programme greifen auf die Daten zu. Multiuser-Fähigkeit sollte gewährleistet sein (durch die Angabe des Eigentümers der DB-Objekte in SQL-Statements). Die Prüfer melden sich am MS SQL-Server nicht mit ihren Login-Daten an. Deshalb müssen Sie sicherstellen, dass die Skripte durch andere DB-User aufgerufen werden können.
+  \item Abgabe lauffähiger, getesteter und ausführbarer SQL-Prozeduren: \begin{itemize}
+    \item Die Skripte und Prozeduren müssen ausführbar sein. Diese sind im Projektordner \textbf{sql} abzulegen.
+    \item Ein Beispiel für den Prozeduraufruf muss erstellt werden.
+    \item Das Java-Programm muss lauffähig und mittels bat-Datei realisiert sein
+  \end{itemize}
+  \item Folgende Unternlagen sollen in gedruckter Form vorgelegt werden: \begin{itemize}
+    \item Pflichtenheft/Aufgabenstellung
+    \item Lösungswegbeschreibungen für (1) ETL-Prozess, (2) DW-REPORT (inkl. SQL-Anweisungen, Skripte, Prozeduren, Views, Trigger etc.) sowie zusätlich erstellte Tabellen udn Formeln.
+    \item extra ausgedruckt: Java-Quellcode und SQL-Skripte mit Kommentaren und Erläuterungen
+    \item Benutzerhandbuch für Anwendung des DW-Report
+  \end{itemize}
+  \item Folgende Unternlagen sollen in elektronischer Form (CD/DVD) vorgelegt werden: \begin{itemize}
+    \item Alle gedruckten Unternlagen
+    \item Alle Java-Programme und selbst erstellen SQL-Skripte
+  \end{itemize}
+  \item Abgabe in einem heftbaren Ordner inklusive eines fest angebrachten, leicht abnehmbaren Datenträgers.
+\end{enumerate}
 \subsection{Selbstständige Erarbeitung der Ergebnisse}
+Die Ergebnisse von jedem Prüfling müssen selbst erbracht werden. Wer versucht, das Ergebnis ihrer Prüfungsleistung durch Täuschung oder Benutzung nicht zugelassener Hilfsmitteln (Entwurfs- und Programmbestandteile anderer Studierender) zu beeinflussen, wird mit \textbf{nicht ausreichend} bewertet.
 \subsection{Organisatorisches}
+\begin{itemize}
+  \item Abgabe am 16.01.2020 (09:00. W108). Jeder Studierende muss zur Abgabe der Dokumentation persönlich erscheinen und dem Prüfer die Ergebnisse vorstellen.
+\end{itemize}

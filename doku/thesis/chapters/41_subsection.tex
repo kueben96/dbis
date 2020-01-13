@@ -1,14 +1,19 @@
 \subsection{Zielbestimmung}
-Das Mischen von alter und neuer Rechtschreibung ist unzulässig.
+\paragraph{Musskriterien}
+\begin{enumerate}
+  \item Richten Sie die Tabellen mit den bereitgestellten SQL-Skripten in Ihrer eigenen Datenbank
+  des MS-SQL-Servers ein.
+  \item Eines der gegebenen SQL-Skripte füllt die operationale Datenbank mit einem Grundbestand an Filialen und Produkten. Es existieren aber noch weitere PRODUKTE, die in der Datei \glqq PRODUKTE1.csv\grqq{} abgelegt sind. Erstellen Sie ein Java-Programm, das die zusätzlichen Daten in die operationale Datenbank klädt. In der CSV-Datei können fehlerhafte Daten enthalten sein. Führen Sie eine geeignete Fehlerbehandlung  und -protokollierung durch. Verwenden Sie das JDBC-API oder die Hibernate-Technologie (optional).
+  \item In dem vorgegebenen SQL-Skript wird die operationale Datenbank auch mit einem Grundbestand an Kassenbons gefüllt. Erweitern Sie den Datenbestand um min. 40 Kassenbons mit durchschnittlich 3 Bonpositionen und 7 Handelsmarken sowie 10 Fachbereiche der Filiale 14. Der Dateiname mit den zugehörigen Anweisungen soll \glq 3-Insert-Student\grq{} lauten und im Projektordner \glq sql\grq{} abgelegt sein.
+  \item Analysieren Sie das bereitgestellte STAR-Schema für ein Data-Warehouse, welches dem Händler die Umsatzanalyse und Auswertung von Verkäufen ermöglicht. Als Faktenattribute werden Kassenbondaten berücksichtigt. dAuswertungen sollen in Bezug auf Filiale, Abteilung, Produkt und Zeiträumen möglich sein. Die Faktendaten sollen tagesgenau gespeichert werden. Es sollen zusätzlich aggregierte Faktenwerte auf Wochenbasis verfügbar sein.
+  \item Erstellen Sie geeignete ETL-SQL-Skripte (falls erforderlich DDL- unf DML-Anweisungen), um die Daten aus der operativen DB in das DW zu extrahieren.
+  \item Entwickeln Sie eine DB-Prozedur namens DW-REPORT. Zu allen oder ausgewählten Merkmalen der vorhandenen Dimensionen sollen die in einem bestimmten Zeitraum erzielten Verkäufe (z.B. Umsätze, Verkaufsmengen) berechnet und angezeigt werden. Der gewünschte Zeitabschnitt sowie Parameter der Dimensionen sollen weitgehend variabel, d.h. vom Benutzer einstellbar sein. Die Prozedur wird zur Auswertung des DW eingesetzt. Sie liefert in der Konsole eines SQL-Editors die Ergebnisse der Auswertung. Der Report soll formatiert und übersichtlich gestaltet sein. Verwenden Sie keine Reporting-Dienste, sonder erstellen Sie den SQL-Report mittels SQL-Anweisungen aus den Vorlesungsunterlagen und der Online-Dokumentation des MS SQL-Servers. Ein Beispiel für einen Prozeduraufruf mit von Ihnen vorgschlagenen Parametern ist zwingend erforderlich.
+\end{enumerate}
 
-Für die Erstellung der eigenen Arbeit kann es sinnvoll sein, dieses Dokument zu übernehmen  und kontinuierlich die beispielhaften Bereiche gegen die eigenen neuen Passagen zu ersetzen; so bleibt der Aufbau erhalten und man verliert nicht versehentlich Formatierungen o. ä. Bei der Erstellung der Gliederung der eigenen wissenschaftlichen Arbeit sollten die beiden Kriterien Vollständigkeit und Überschneidungsfreiheit beachtet werden! Auf jeder eröffneten Gliederungsebene müssen jeweils mindestens zwei Gliederungspunkte existieren, also nicht:
+\paragraph{Kannkriterien}
 
-\noindent--------\\
-2	Ist-Zustand\\
-2.1	Ist-Zustand im Unternehmen XYZ\\
-3	Soll-Konzept\\
---------
+\begin{itemize}
+  \item Zusätzlich soll eine Visualisierung der Auswertungen mit der BI-Software QlikSense vorgenommen werden.
+\end{itemize}
 
-Abkürzungen im Plural (Formatvorlagen) erhalten kein nachgestelltes "`s"'. Abkürzungen wie "`PCs"' oder "`CD-ROMs"' sind unzulässig.
 
-Sollen einzelne Wörter im Text hervorgehoben werden, so ist eine kursive Hervorhebung dem Druck in fetter Schrift  vorzuziehen.

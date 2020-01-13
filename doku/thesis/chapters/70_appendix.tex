@@ -930,7 +930,7 @@ public class Date_Format {
 
 \subsection{3-Insert-Student}
 
-\begin{lstlisting}
+\begin{lstlisting}[language=SQL]
 
   -- ******************** Kassenbonerstellung *************************** --
 
@@ -1262,11 +1262,83 @@ values
 
 \end{lstlisting}
 
+\subsection{4-Update-Tables}
 
-\subsection{4-ETL-DW}
+\begin{lstlisting}[language=SQL]
+  select * from PRODUKT;
+select * from HANDELSMARKE;
 
-\begin{lstlisting}
-  -- Dim-Tabellen mit Werten aus der ODB befullen --
+-- *** Zuordnung der Handelsmarken *** --
+
+update PRODUKT
+set HANDELSMARKEID = 22
+where BEZEICHNUNG LIKE '%Landliebe%';
+
+update PRODUKT
+set HANDELSMARKEID = 40
+where BEZEICHNUNG LIKE '%Kellog%';
+
+update PRODUKT
+set HANDELSMARKEID = 42
+where BEZEICHNUNG LIKE '%Goutess%';
+
+update PRODUKT
+set HANDELSMARKEID = 46
+where BEZEICHNUNG LIKE '%Basic%';
+
+update PRODUKT
+set HANDELSMARKEID = 39
+where BEZEICHNUNG LIKE '%Nestle%';
+
+update PRODUKT
+set HANDELSMARKEID = 38
+where BEZEICHNUNG LIKE '%Schaer%';
+
+update PRODUKT
+set HANDELSMARKEID = 45
+where BEZEICHNUNG LIKE '%Nick%';
+
+update PRODUKT
+set HANDELSMARKEID = 13
+where BEZEICHNUNG LIKE '%Oetker%';
+
+-- ** Update der Summen in Kassenbons ** --
+
+UPDATE KASSENBON
+SET SUMME = t.summe_einkauf
+FROM KASSENBON AS kb
+INNER JOIN
+    (
+        SELECT BONNR, SUM(VERKAUFSPREIS) summe_einkauf
+        FROM BONPOSITION
+        GROUP BY BONNR
+    ) t
+    ON t.BONNR = kb.BONNR
+
+-- ** Bargeld an Summe anpassen, um Deckung zu gewaehrleisten ** --
+
+update KASSENBON
+	set BARGELD = Round(SUMME, 0)
+
+-- ** Bargeld standardmaessig erhoehen, um Differenz zu erzeugen ** --
+
+update KASSENBON
+	set BARGELD = BARGELD + 50
+
+-- ** runden ** --
+
+update KASSENBON
+	set BARGELD = Round(Bargeld,-1)
+
+
+
+\end{lstlisting}
+
+\subsection{5-ETL-DW}
+
+\begin{lstlisting}[language=SQL]
+use DB6013868
+-- Dim-Tabellen mit Werten aus der ODB befullen --
 --DIM_Abteilung--
 insert into DIM_Abteilung(AbteilungNr,Name)
 select FB.FachbereichNr,FB.Name
@@ -1287,8 +1359,8 @@ insert into DIM_HANDELSMARKE(HANDELSMARKENR,NAME, LAND)
 select HM.HANDELSMARKEID, HM.NAME, HM.LAND
 from HANDELSMARKE AS HM
 
-
 --DIM_Date Parameter fur die Berechnung der Attribute--
+--Alle Tage von Anfang bis Ende ---
 declare @vonDatum date,
 		@bisDatum date,
 		@Jahr integer, -- Attribut "Jahr"
@@ -1394,9 +1466,9 @@ while @flag = 0
 
 \end{lstlisting}
 
-\subsection{5-Fakten-Woche}
+\subsection{6-Fakten-Woche}
 
-\begin{lstlisting}
+\begin{lstlisting}[language=SQL]
   create table KASSENBON_FAKTEN_WOCHEN (
 	ABTEILUNGNR int not null references DIM_ABTEILUNG (ABTEILUNGNR),
 	PRODUKTNR int not null references DIM_PRODUKT (PRODUKTNR),
@@ -1467,9 +1539,9 @@ while @flag = 0
 
 
 
-\subsection{6-DW-Report}
+\subsection{7-DW-Report}
 
-\begin{lstlisting}
+\begin{lstlisting}[language=SQL]
   --- *** PROZEDUR mit Cursor fur das Datum ** ---
 
 --- *** Parameter zum Aufruf der Prozedur: Produktnummer und Zeitspanne ** --
@@ -1523,9 +1595,9 @@ declare  @produktnummer int, @von date, @bis date
 execute DW_REPORT 15,'2019-02-01','2019-08-01'
 \end{lstlisting}
 
-\subsection{7-Hilfstabelle}
+\subsection{8-Hilfstabelle}
 
-\begin{lstlisting}
+\begin{lstlisting}[language=SQL]
 
 
 -- Hilfstabelle fur den Report --
@@ -1536,7 +1608,34 @@ Datum datetime,
 Umsatz float,
 Menge int)
 
-
 \end{lstlisting}
 
+
+\subsection{9-Grant}
+
+\begin{lstlisting}[language=SQL]
+  -- Datentabellen/DB freigeben --
+
+  GRANT CONNECT to public
+
+
+  GRANT SELECT ON dbo.FILIALE to public
+  GRANT SELECT ON dbo.KASSENBON to public
+  GRANT SELECT ON dbo.BONPOSITION to public
+  GRANT SELECT ON dbo.PRODUKT to public
+  GRANT SELECT ON dbo.FACHBEREICH to public
+  GRANT SELECT ON dbo.HANDELSMARKE to public
+
+  GRANT SELECT ON dbo.DIM_TIME to public
+  GRANT SELECT ON dbo.DIM_DATE to public
+  GRANT SELECT ON dbo.DIM_ABTEILUNG to public
+  GRANT SELECT ON dbo.DIM_PRODUKT to public
+  GRANT SELECT ON dbo.DIM_FILIALE to public
+  GRANT SELECT ON dbo.DIM_HANDELSMARKE to public
+  GRANT SELECT ON dbo.KASSENBON_FAKTEN to public
+  GRANT SELECT ON dbo.KASSENBON_FAKTEN_WOCHEN to public
+  GRANT SELECT ON dbo.DW_REPORT_TABLE to public
+
+  GRANT EXECUTE ON dbo.DW_REPORT to public
+\end{lstlisting}
 \newpage

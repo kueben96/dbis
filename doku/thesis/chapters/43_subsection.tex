@@ -1,15 +1,22 @@
 \subsection{Umgebung}
-Bei der Erstellung von Abbildungen ist darauf zu achten, dass die erzeugten Grafiken selbstähnlich seien müssen, d. h. Größe, Schriftart, Schattierung, Linienart und -stärke, sowie die Art der Pfeilspitzen müssen in allen Grafiken gleich gewählt werden. Die serifenlose Schriftart Arial sollte in jedem Fall benutzt werden. Dabei sollte jedoch beachtet werden, dass auf Schatten, 3D-Effekte  und Füllbereich zunächst zu verzichten ist. Sie dienen als Hervorhebung in einigen wenigen Grafiken; der Großteil der verwendeten Grafiken enthält diese Hervorhebungen nicht.
+
+\begin{enumerate}
+  \item Software-Client
+  \begin{itemize}
+    \item Windows 10
+    \item JAVA JDK und JDBC
+  \end{itemize}
+  \item Software-Server
+  \begin{itemize}
+    \item MS SQL-Server auf whv-fbmit3.hs-woe.de
+  \end{itemize}
+  \item Hardware \begin{itemize}
+    \item Client: H401/H416a/W108 Pool Rechner
+    \item Server: whv-fbmit3.hs-woe.de
+  \end{itemize}
+  \item Orgware: ERM
+  \end{enumerate}
 
 
 
-\subsubsection{Einfügen von Listings}
-Abbildungen werden in \LaTeX{} über die Umgebung $\backslash$begin\{lstlisting\} eingefügt. Es ist zu beachten, dass in Listing \ref{lst:source-code-listing} bewusst jede Zeile als Kommentar (Zeilenbeginn mit \%) abgebildet ist, da \LaTeX{} keine Listingdefinition als eigenes Listing zulässt.
 
-\begin{lstlisting}[caption={Quelltext für ein Listing},label=lst:source-code-listing]
-%\begin{lstlisting}
-%  public static void main(args[]) {
-%    System.out.println("Hello World!");
-%  }
-%\end {lstlisting}
-\end{lstlisting}
