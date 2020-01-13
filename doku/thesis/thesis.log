@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.6.3)  13 JAN 2020 18:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.6.3)  13 JAN 2020 18:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -824,28 +824,28 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Users/kuebra.tokuc/workspace/dbis/doku/thesis/pictures/Jade_Logo.png>]) (/Users/kuebra.tokuc/workspace/dbis/doku/thesis/chapters/10_tableofcontents.tex (/Users/kuebra.tokuc/workspace/dbis/doku/thesis/thesis.toc
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 5.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 4.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 5.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 4.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 5.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 4.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 5.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 4.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 5.
+(Font)              <12> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 5.
+(Font)              <8> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 5.
+(Font)              <6> on input line 4.
  [2])
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
@@ -854,26 +854,8 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@lof=\write5
 \openout5 = `thesis.lof'.
 
-
-
-Class scrartcl Warning: \float@listhead detected!
-(scrartcl)              Implementation of \float@listhead became
-(scrartcl)              deprecated in KOMA-Script v3.01 2008/11/14 and
-(scrartcl)              has been replaced by several more flexible
-(scrartcl)              features of package `tocbasic`.
-(scrartcl)              Maybe implementation of \float@listhead will
-(scrartcl)              be removed from KOMA-Script soon.
-(scrartcl)              Loading of package `scrhack' may help to
-(scrartcl)              avoid this warning, if you are using a
-(scrartcl)              a package that still implements the
-(scrartcl)              deprecated \float@listhead interface  on input line 6.
-
-(/Users/kuebra.tokuc/workspace/dbis/doku/thesis/thesis.lol)
-\tf@lol=\write6
-\openout6 = `thesis.lol'.
-
  [4]) (/Users/kuebra.tokuc/workspace/dbis/doku/thesis/chapters/30_introduction.tex
-<pictures/kassenbon.png, id=146, 377.41pt x 611.28375pt>
+<pictures/kassenbon.png, id=144, 377.41pt x 611.28375pt>
 File: pictures/kassenbon.png Graphic file (type png)
 <use pictures/kassenbon.png>
 Package pdftex.def Info: pictures/kassenbon.png  used on input line 7.
@@ -887,7 +869,7 @@ Overfull \hbox (1.67982pt too wide) in paragraph at lines 10--11
  []
 
 [2]) (/Users/kuebra.tokuc/workspace/dbis/doku/thesis/chapters/42_subsection.tex) (/Users/kuebra.tokuc/workspace/dbis/doku/thesis/chapters/43_subsection.tex [3]) (/Users/kuebra.tokuc/workspace/dbis/doku/thesis/chapters/44_subsection.tex [4] [5])) (/Users/kuebra.tokuc/workspace/dbis/doku/thesis/chapters/50_conlusion.tex
-<pictures/db_basic.png, id=192, 993.7125pt x 562.1pt>
+<pictures/db_basic.png, id=190, 993.7125pt x 562.1pt>
 File: pictures/db_basic.png Graphic file (type png)
 <use pictures/db_basic.png>
 Package pdftex.def Info: pictures/db_basic.png  used on input line 12.
@@ -897,7 +879,7 @@ Overfull \hbox (85.35696pt too wide) in paragraph at lines 12--13
  [][] 
  []
 
-<pictures/phys_data.png, id=193, 696.6025pt x 437.635pt>
+<pictures/phys_data.png, id=191, 696.6025pt x 437.635pt>
 File: pictures/phys_data.png Graphic file (type png)
 <use pictures/phys_data.png>
 Package pdftex.def Info: pictures/phys_data.png  used on input line 18.
@@ -907,7 +889,7 @@ Overfull \hbox (85.35696pt too wide) in paragraph at lines 18--19
  [][] 
  []
 
-<pictures/window.png, id=195, 556.0775pt x 302.12875pt>
+<pictures/window.png, id=193, 556.0775pt x 302.12875pt>
 File: pictures/window.png Graphic file (type png)
 <use pictures/window.png>
 Package pdftex.def Info: pictures/window.png  used on input line 27.
@@ -929,7 +911,7 @@ File: ts1zi4.fd 2018/01/14 TS1/zi4 (Inconsolata)
 LaTeX Font Info:    Font shape `TS1/zi4/m/n' will be
 (Font)              scaled to size 12.0pt on input line 155.
  [12] [13] [14]
-<pictures/dw_concept.png, id=416, 855.195pt x 707.64375pt>
+<pictures/dw_concept.png, id=414, 855.195pt x 707.64375pt>
 File: pictures/dw_concept.png Graphic file (type png)
 <use pictures/dw_concept.png>
 Package pdftex.def Info: pictures/dw_concept.png  used on input line 256.
@@ -940,7 +922,7 @@ Overfull \hbox (42.68173pt too wide) in paragraph at lines 256--257
  []
 
 [15]
-<pictures/DW_Physical_Data.png, id=438, 954.56625pt x 690.58pt>
+<pictures/DW_Physical_Data.png, id=436, 954.56625pt x 690.58pt>
 File: pictures/DW_Physical_Data.png Graphic file (type png)
 <use pictures/DW_Physical_Data.png>
 Package pdftex.def Info: pictures/DW_Physical_Data.png  used on input line 263.
@@ -955,7 +937,7 @@ Underfull \hbox (badness 1571) in paragraph at lines 264--264
 [][][]\T1/lmr/m/n/12 Physikaliches Da-ten-mo-dell des Data-Warehouses (Quel-le: DBIS-
  []
 
-<pictures/dw_asso.png, id=439, 892.33376pt x 600.2425pt>
+<pictures/dw_asso.png, id=437, 892.33376pt x 600.2425pt>
 File: pictures/dw_asso.png Graphic file (type png)
 <use pictures/dw_asso.png>
 Package pdftex.def Info: pictures/dw_asso.png  used on input line 270.
@@ -966,7 +948,7 @@ Overfull \hbox (42.68173pt too wide) in paragraph at lines 270--271
  []
 
 [16 </Users/kuebra.tokuc/workspace/dbis/doku/thesis/pictures/dw_concept.png>] [17 </Users/kuebra.tokuc/workspace/dbis/doku/thesis/pictures/DW_Physical_Data.png>] [18 </Users/kuebra.tokuc/workspace/dbis/doku/thesis/pictures/dw_asso.png>] [19]
-<pictures/fakten_woche.png, id=507, 855.195pt x 569.12625pt>
+<pictures/fakten_woche.png, id=505, 855.195pt x 569.12625pt>
 File: pictures/fakten_woche.png Graphic file (type png)
 <use pictures/fakten_woche.png>
 Package pdftex.def Info: pictures/fakten_woche.png  used on input line 363.
@@ -977,7 +959,7 @@ Overfull \hbox (42.68173pt too wide) in paragraph at lines 363--364
  []
 
 [20] [21 </Users/kuebra.tokuc/workspace/dbis/doku/thesis/pictures/fakten_woche.png>] [22]
-<pictures/report_sql.png, id=587, 454.69875pt x 590.205pt>
+<pictures/report_sql.png, id=585, 454.69875pt x 590.205pt>
 File: pictures/report_sql.png Graphic file (type png)
 <use pictures/report_sql.png>
 Package pdftex.def Info: pictures/report_sql.png  used on input line 440.
@@ -991,7 +973,7 @@ Overfull \hbox (42.68173pt too wide) in paragraph at lines 440--441
 Overfull \vbox (51.25754pt too high) has occurred while \output is active []
 
  [24 </Users/kuebra.tokuc/workspace/dbis/doku/thesis/pictures/report_sql.png>]
-<pictures/meistverkauft_produkt.png, id=613, 1146.2825pt x 773.89125pt>
+<pictures/meistverkauft_produkt.png, id=611, 1146.2825pt x 773.89125pt>
 File: pictures/meistverkauft_produkt.png Graphic file (type png)
 <use pictures/meistverkauft_produkt.png>
 Package pdftex.def Info: pictures/meistverkauft_produkt.png  used on input line 457.
@@ -1001,7 +983,7 @@ Overfull \hbox (85.35696pt too wide) in paragraph at lines 457--458
  [][] 
  []
 
-<pictures/umsatzarm.png, id=614, 1154.3125pt x 814.04124pt>
+<pictures/umsatzarm.png, id=612, 1154.3125pt x 814.04124pt>
 File: pictures/umsatzarm.png Graphic file (type png)
 <use pictures/umsatzarm.png>
 Package pdftex.def Info: pictures/umsatzarm.png  used on input line 463.
@@ -1012,7 +994,7 @@ Overfull \hbox (85.35696pt too wide) in paragraph at lines 463--464
  []
 
 [25] [26 </Users/kuebra.tokuc/workspace/dbis/doku/thesis/pictures/meistverkauft_produkt.png>]
-<pictures/ums_handelsmarke.png, id=624, 787.94376pt x 782.925pt>
+<pictures/ums_handelsmarke.png, id=622, 787.94376pt x 782.925pt>
 File: pictures/ums_handelsmarke.png Graphic file (type png)
 <use pictures/ums_handelsmarke.png>
 Package pdftex.def Info: pictures/ums_handelsmarke.png  used on input line 473.
@@ -1023,7 +1005,7 @@ Overfull \hbox (42.68173pt too wide) in paragraph at lines 473--474
  []
 
 [27 </Users/kuebra.tokuc/workspace/dbis/doku/thesis/pictures/umsatzarm.png>] [28 </Users/kuebra.tokuc/workspace/dbis/doku/thesis/pictures/ums_handelsmarke.png>]
-<pictures/kalenderwochen.png, id=636, 1347.0325pt x 825.0825pt>
+<pictures/kalenderwochen.png, id=634, 1347.0325pt x 825.0825pt>
 File: pictures/kalenderwochen.png Graphic file (type png)
 <use pictures/kalenderwochen.png>
 Package pdftex.def Info: pictures/kalenderwochen.png  used on input line 484.
@@ -1063,18 +1045,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16849 strings out of 492616
- 261480 string characters out of 6129482
- 684359 words of memory out of 5000000
- 18437 multiletter control sequences out of 15000+600000
+ 16843 strings out of 492616
+ 261340 string characters out of 6129482
+ 684352 words of memory out of 5000000
+ 18435 multiletter control sequences out of 15000+600000
  42362 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,74p,9132b,2176s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2019/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmro12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on /Users/kuebra.tokuc/workspace/dbis/doku/thesis/thesis.pdf (87 pages, 3455872 bytes).
+Output written on /Users/kuebra.tokuc/workspace/dbis/doku/thesis/thesis.pdf (87 pages, 3455726 bytes).
 PDF statistics:
- 3022 PDF objects out of 3580 (max. 8388607)
- 2870 compressed objects within 29 object streams
- 2033 named destinations out of 2073 (max. 500000)
- 431 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3017 PDF objects out of 3580 (max. 8388607)
+ 2865 compressed objects within 29 object streams
+ 2032 named destinations out of 2073 (max. 500000)
+ 423 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -219,9 +219,6 @@ INPUT /Users/kuebra.tokuc/workspace/dbis/doku/thesis/chapters/20_lists.tex
 INPUT /Users/kuebra.tokuc/workspace/dbis/doku/thesis/thesis.lof
 INPUT /Users/kuebra.tokuc/workspace/dbis/doku/thesis/thesis.lof
 OUTPUT /Users/kuebra.tokuc/workspace/dbis/doku/thesis/thesis.lof
-INPUT /Users/kuebra.tokuc/workspace/dbis/doku/thesis/thesis.lol
-INPUT /Users/kuebra.tokuc/workspace/dbis/doku/thesis/thesis.lol
-OUTPUT /Users/kuebra.tokuc/workspace/dbis/doku/thesis/thesis.lol
 INPUT /Users/kuebra.tokuc/workspace/dbis/doku/thesis/chapters/30_introduction.tex
 INPUT /Users/kuebra.tokuc/workspace/dbis/doku/thesis/chapters/30_introduction.tex
 INPUT /Users/kuebra.tokuc/workspace/dbis/doku/thesis/pictures/kassenbon.png

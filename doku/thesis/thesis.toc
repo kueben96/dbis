@@ -1,10 +1,9 @@
 \contentsline {section}{Abbildungsverzeichnis}{IV}{section*.2}% 
-\contentsline {section}{Quelltextverzeichnis}{IV}{section*.3}% 
 \contentsline {section}{\numberline {1}Aufgabenbeschreibung}{1}{section.1}% 
 \contentsline {section}{\numberline {2}Pflichtenheft}{2}{section.2}% 
 \contentsline {subsection}{\numberline {2.1}Zielbestimmung}{2}{subsection.2.1}% 
-\contentsline {paragraph}{\nonumberline Musskriterien}{2}{section*.4}% 
-\contentsline {paragraph}{\nonumberline Kannkriterien}{3}{section*.5}% 
+\contentsline {paragraph}{\nonumberline Musskriterien}{2}{section*.3}% 
+\contentsline {paragraph}{\nonumberline Kannkriterien}{3}{section*.4}% 
 \contentsline {subsection}{\numberline {2.2}Einsatz}{3}{subsection.2.2}% 
 \contentsline {subsection}{\numberline {2.3}Umgebung}{3}{subsection.2.3}% 
 \contentsline {subsection}{\numberline {2.4}Daten}{4}{subsection.2.4}% 
@@ -28,7 +27,7 @@
 \contentsline {subsubsection}{\numberline {3.6.1}Produkte nach Ums\IeC {\"a}tzen}{25}{subsubsection.3.6.1}% 
 \contentsline {subsubsection}{\numberline {3.6.2}Erfolgreichsten Handelsmarken}{27}{subsubsection.3.6.2}% 
 \contentsline {subsubsection}{\numberline {3.6.3}Auswertung nach Kalenderwochen}{28}{subsubsection.3.6.3}% 
-\contentsline {section}{\nonumberline Literatur}{30}{section*.6}% 
+\contentsline {section}{\nonumberline Literatur}{30}{section*.5}% 
 \contentsline {section}{\numberline {A}Quelltext f\IeC {\"u}r das Java Programm}{31}{appendix.A}% 
 \contentsline {subsection}{\numberline {A.1}ImportWindow}{31}{subsection.A.1}% 
 \contentsline {subsection}{\numberline {A.2}DBConnection}{38}{subsection.A.2}% 
