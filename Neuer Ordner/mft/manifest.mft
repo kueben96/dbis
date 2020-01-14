@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Main-Class: dbis.imp.Main
+Name: Main.class
+Implementation-Title: "FH OOW" 
+Implementation-Vendor: "Larissa Janssen"
+Class-Path: . ./dbisimp.jar ./lib/sqlserver/Merlia.jar 
+
+
+
+
