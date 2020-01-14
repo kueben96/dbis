@@ -16,7 +16,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//erstmal auskommentieren
+		//Aufruf des Programms ueber den Konstruktor der ImportWindow-Klasse
 
 				try {
 					ImportWindow win = new ImportWindow();
@@ -25,6 +25,8 @@ public class Main {
 
 
 				}
+				
+//  	Versuche, Um Dr. Oetker mir Regex als Handelsmarke zu identifizieren				
 
 //		String s = "Weber Fisch Barbecue Gewürz Weber Fisch Barbecue Gewürz Weber Fisch Barbecue Gewürz Weber Fisch Barbecue Gewürz Weber Fisch Barbecue Gewürz Weber Fisch Barbecue Gewürz Weber Fisch Barbecue Gewürz Weber Fisch Barbecue Gewürz Weber Fisch Barbecue Gewürz Weber Fisch Barbecue Gewürz Weber Fisch Barbecue Gewürz Weber Fisch Barbecue Gewürz (18 g)";
 //		byte[] b = s.getBytes(StandardCharsets.UTF_8);

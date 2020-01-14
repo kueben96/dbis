@@ -1,0 +1,3 @@
+#!/bin/sh
+echo Importprogramm wird gestartet ...
+java -jar ./importcsv.jar
