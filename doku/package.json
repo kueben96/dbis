@@ -16,7 +16,7 @@
   "homepage": "https://github.com/nimble-123/thesis-template#readme",
   "devDependencies": {
     "cz-conventional-changelog": "^3.0.2",
-    "standard-version": "^7.0.0"
+    "standard-version": "^8.0.1"
   },
   "config": {
     "commitizen": {
